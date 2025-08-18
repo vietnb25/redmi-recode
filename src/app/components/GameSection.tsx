@@ -174,7 +174,7 @@ export default function GameSection() {
       {/* Background */}
       <div className={styles.background}>
         <Image
-          src="/GameSection/Background.png"
+          src="/GameSection/background.png"
           alt=""
           width={1170}
           height={800}

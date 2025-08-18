@@ -374,7 +374,7 @@ const Question3: React.FC<Question3Props> = ({ onGameComplete, lastName, phone }
                                 zIndex: 99,
                             }}>
                                 <Image
-                                    src="/MiniGame/tagline.png"
+                                    src="/MiniGame/Tagline.png"
                                     alt="Tagline"
                                     fill
                                     style={{ objectFit: 'contain' }}
