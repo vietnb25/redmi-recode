@@ -1,0 +1,264 @@
+.container {
+    position: relative;
+    width: 100%;
+    height: 850px;
+    background-image: url('/PromotionSection/background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0;
+}
+
+/* Title Section Outside Border */
+.titleSection {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.mainTitle {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 1.176em;
+    text-align: center;
+    background: linear-gradient(270deg, #63D3CA 0%, #3A5099 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0 0 16px 0;
+}
+
+.subTitle {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 1.167em;
+    letter-spacing: -1px;
+    text-align: center;
+    color: #000000;
+    margin: 0;
+}
+
+
+
+.text {
+    align-items: center;
+    text-align: center;
+    color: #000000;
+    margin: 0;
+}
+
+.border {
+    position: relative;
+    height: 429px;
+    width: 1170px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+.border img {
+    opacity: 0.8 !important;
+    z-index: 0;
+}
+
+/* Content Frame Inside Border */
+.contentFrame {
+    position: relative;
+    z-index: 2;
+    padding: 56px 97px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 972px;
+    margin-left: -200px;
+}
+
+.introSection {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.introText {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.4em;
+    color: #212B36;
+    margin: 0;
+}
+
+.programTitle {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.333em;
+    background: linear-gradient(270deg, #4AD8CD 30%, #2D3F7B 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+}
+
+.callToAction {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5em;
+    color: #637381;
+    margin: 0;
+}
+
+.timeSection {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.participationSection {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sectionTitle {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.4em;
+    color: #212B36;
+    margin: 0;
+}
+
+.timeFrame {
+    padding-left: 30px;
+}
+
+.timeText {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5em;
+    color: #212B36;
+    margin: 0;
+}
+
+.participationFrame {
+    padding-left: 30px;
+}
+
+.participationText {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5em;
+    color: #637381;
+    margin: 0;
+    width: 942px;
+}
+
+.highlightText {
+    font-weight: 600;
+    color: #212B36;
+}
+
+.italicText {
+    font-style: italic;
+    color: #637381;
+}
+
+.linkText {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+.phoneText {
+    font-weight: 600;
+    color: #212B36;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .container {
+        height: auto;
+        min-height: 100vh;
+        padding: 20px 16px;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .titleSection {
+        margin-bottom: 24px;
+    }
+
+    .mainTitle {
+        font-size: 20px;
+        line-height: 1.2em;
+        margin-bottom: 8px;
+    }
+
+    .subTitle {
+        font-size: 28px;
+        line-height: 1.2em;
+        letter-spacing: -0.5px;
+    }
+
+    .border {
+        width: 344px;
+        height: 643px;
+        margin: 16px auto;
+    }
+
+    .contentFrame {
+        width: 100%;
+        padding: 32px 24px;
+        margin-left: 0;
+        gap: 20px;
+    }
+
+    .introText {
+        font-size: 16px;
+        line-height: 1.3em;
+    }
+
+    .programTitle {
+        font-size: 18px;
+        line-height: 1.3em;
+    }
+
+    .callToAction {
+        font-size: 14px;
+        line-height: 1.4em;
+    }
+
+    .sectionTitle {
+        font-size: 16px;
+        line-height: 1.3em;
+        font-weight: bold;
+    }
+
+    .timeFrame {
+        padding-left: 16px;
+    }
+
+    .timeText {
+        font-size: 14px;
+        line-height: 1.4em;
+    }
+
+    .participationFrame {
+        padding-left: 16px;
+    }
+
+    .participationText {
+        font-size: 14px;
+        line-height: 1.4em;
+        width: 100%;
+    }
+}

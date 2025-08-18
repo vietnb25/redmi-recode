@@ -1,0 +1,15 @@
+.pageContainer {
+  margin: 0;
+  padding: 0;
+  min-height: auto;     /* was 100vh */
+  gap: 0;               /* remove extra spacing */
+}
+
+/* In case there are other rules later setting padding/gap/min-height, nail them down */
+@media (min-width: 0px) {
+  .pageContainer {
+    padding: 0 !important;
+    gap: 0 !important;
+    min-height: auto !important; /* override 100svh variants */
+  }
+}

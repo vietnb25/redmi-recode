@@ -1,0 +1,165 @@
+.section {
+  padding: 4rem 0;
+  background-color: #090C14;
+  background-image: url('/ProductInfo/Background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  max-width: 1366px;
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.titleContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.titleImage {
+  max-width: 80%;
+  height: auto;
+}
+
+.textWrapper {
+  text-align: center;
+  margin-bottom: 3rem;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  width: 1168px;
+  height: 773px;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.topRow {
+  display: flex;
+  width: 100%;
+  height: 414px;
+  margin: 0 0 20px 0;
+  gap: 20px;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.bottomRow {
+  display: flex;
+  width: 100%;
+  height: 339px;
+  margin: 0;
+  gap: 20px;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.col6 {
+  width: 574px;
+  height: 414px;
+}
+
+.col4 {
+  width: 375px;
+  height: 339px;
+}
+
+.featureCard {
+  background: rgba(25, 27, 36, 0.7);
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  height: 100%;
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .section {
+    padding: 3rem 0;
+  }
+
+  .container {
+    max-width: 375px;
+  }
+
+  .titleContainer {
+    margin-bottom: 30px;
+  }
+
+  .titleImage {
+    max-width: 90%;
+  }
+
+  .textWrapper {
+    margin-bottom: 2rem;
+  }
+
+  .row {
+    width: 343px;
+    height: 1079px;
+    flex-direction: column;
+  }
+
+  .topRow {
+    flex-direction: column;
+    width: 100%;
+    height: 526px;
+    margin: 0 0 12px 0;
+    gap: 12px;
+    justify-content: flex-start;
+  }
+
+  .bottomRow {
+    flex-direction: column;
+    width: 100%;
+    height: 541px;
+    margin: 0;
+    gap: 12px;
+    justify-content: flex-start;
+  }
+
+  .col6 {
+    width: 343px;
+    height: 257px;
+  }
+
+  .col4 {
+    width: 343px;
+    height: 172px;
+  }
+}

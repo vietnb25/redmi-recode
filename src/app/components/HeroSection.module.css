@@ -1,0 +1,317 @@
+.heroSection {
+  width: 100%;
+  height: 614px;
+  /* Cố định height 550px cho desktop */
+  overflow: hidden;
+  position: relative;
+  background: url('/HeroSection/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  max-width: 1366px;
+  margin: 0 auto;
+  padding: 0;
+  /* Loại bỏ padding */
+  transform-origin: center;
+}
+
+.grid {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* Left product image - theo Figma: x: -79, y: -60, w: 713, h: 641 */
+.leftImageContainer {
+  position: absolute;
+  left: -15%;
+  /* -79px/1366px */
+  top: 65;
+  /* Bắt đầu từ đầu container */
+  width: 60%;
+  /* 713px/1366px */
+  height: 90%;
+  /* Bằng chiều cao layout */
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  /* Căn giữa theo chiều dọc */
+  justify-content: center;
+  /* Căn giữa theo chiều ngang */
+}
+
+.productImage {
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  object-fit: contain;
+}
+
+/* Right content - chứa cả ảnh và disclaimer */
+.rightContentContainer {
+  position: absolute;
+  left: 55.1%;
+  /* 753px/1366px */
+  top: 154px;
+  /* 64px header + 90px gap = 154px từ top */
+  width: 33.4%;
+  /* 456px/1366px */
+  height: auto;
+  /* Để ảnh hiển thị tự nhiên */
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+}
+
+.infoImage {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  max-height: 70vh;
+  /* Giới hạn chiều cao để không quá lớn */
+}
+
+/* Disclaimer text - dùng margin thay vì absolute positioning */
+.disclaimer {
+  margin-top: 48px;
+  /* 48px gap từ ảnh tap1right */
+  margin-left: auto;
+  /* Căn phải */
+
+  width: 100%;
+
+  color: #637381;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: clamp(8px, 0.73vw, 12px);
+  /* Font size ổn định hơn */
+  line-height: 1.4em;
+  text-align: right;
+  margin-bottom: 0;
+}
+
+/* Pagination dots */
+.pagination {
+  position: absolute;
+  left: 48.3%;
+  /* 660px/1366px */
+  bottom: 6.9%;
+  /* (550-512-10)/550 */
+  display: flex;
+  gap: clamp(6px, 0.6vw, 10px);
+  /* Gap ổn định hơn */
+  z-index: 4;
+}
+
+
+
+.dot {
+  width: clamp(8px, 0.73vw, 12px);
+  /* Kích thước ổn định hơn */
+  height: clamp(8px, 0.73vw, 12px);
+  border-radius: 50%;
+  background-color: #271F5F;
+  opacity: 0.15;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  /* Thêm pointer cursor */
+}
+
+.dot:hover {
+  opacity: 0.5;
+  /* Hiệu ứng hover */
+  transform: scale(1.1);
+  /* Phóng to nhẹ khi hover */
+}
+
+.dot.active {
+  background-color: #53498D;
+  opacity: 1;
+}
+
+.dot.active:hover {
+  opacity: 1;
+  /* Giữ opacity 1 cho active dot */
+}
+
+/* Animation classes */
+@keyframes fadeInOut {
+  0% {
+    opacity: 0.5;
+    transform: scale(0.98);
+  }
+
+  50% {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideTransition {
+  0% {
+    opacity: 0.8;
+    transform: translateX(-5px);
+  }
+
+  50% {
+    opacity: 0.2;
+    transform: translateX(5px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animating {
+  animation: fadeInOut 0.5s ease-in-out;
+  will-change: opacity, transform;
+}
+
+@media (max-width: 768px) {
+  .animating {
+    animation: slideTransition 0.6s ease-in-out;
+  }
+
+  .disclaimer {
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: -420;
+    width: 100%;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 8px 12px;
+    margin: 0;
+    z-index: 10;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.04);
+  }
+}
+
+/* Desktop scaling cho màn hình lớn */
+@media (min-width: 1367px) {
+  .container {
+    transform: scale(calc(100vw / 1366));
+    transform-origin: center top;
+  }
+}
+
+@media (max-width: 1366px) and (min-width: 769px) {
+  .heroSection {
+    height: 550px;
+    /* Cố định 550px cho desktop */
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .heroSection {
+    height: auto;
+    max-height: 95vh;
+    background: linear-gradient(135deg, #DEF0FA 0%, #FFFFFF 100%);
+    padding: 0;
+    /* Remove padding to allow full width content */
+  }
+
+  .container {
+    padding: 0;
+    /* Remove all padding */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    /* Remove gap for tighter layout */
+
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .rightContentContainer {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    order: 1;
+    /* Info image first */
+    padding: 2rem 1rem 1rem;
+    /* Add padding only to info section */
+  }
+
+  .leftImageContainer {
+    position: relative;
+    left: 0;
+    top: -90;
+    width: 100vw;
+    /* Full viewport width */
+    height: auto;
+    order: 2;
+    /* Product image second */
+    margin: 0;
+    /* Remove any margin */
+    padding: 0;
+    /* Remove any padding */
+  }
+
+  .productImage {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    /* margin-bottom: 2px; */
+    margin-top: 50px
+      /* Remove margins */
+  }
+
+  .infoImage {
+    width: 100%;
+    height: auto;
+    margin-top: 80px;
+  }
+
+
+
+  .pagination {
+    display: none;
+    /* Hide pagination dots on mobile */
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    min-width: 10px;
+    min-height: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0;
+    /* Keep no padding for smaller screens */
+    gap: 0;
+    min-height: 70vh;
+  }
+
+  .rightContentContainer {
+    padding: 1.5rem 0.5rem 1rem;
+    /* Adjust padding for smaller screens */
+  }
+
+  .disclaimer {
+    font-size: 10px;
+    padding: 0.5rem;
+  }
+}

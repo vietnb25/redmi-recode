@@ -1,0 +1,374 @@
+.footer {
+    background-color: #212121;
+    padding: 51px 0 42px;
+    width: 100%;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: repeat(6, 175px);
+    gap: 0 24px;
+    margin-bottom: 55px;
+    width: 1170px;
+}
+
+/* Column Styles */
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.columnTitle {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #B0B0B0;
+    margin: 0 0 24px 0;
+    text-transform: uppercase;
+}
+
+.linkList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.link {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.4286;
+    color: #B0B0B0;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.link:hover {
+    color: #FFFFFF;
+}
+
+/* Contact Column */
+.contactColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.phoneNumber {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.3333;
+    letter-spacing: -0.25px;
+    color: #B0B0B0;
+    margin-bottom: 16px;
+}
+
+.workingHours {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.4286;
+    color: #B0B0B0;
+    margin-bottom: 31px;
+}
+
+.emailButton {
+    background-color: #FF6700;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 24px;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.5;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    width: 161px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.emailButton:hover {
+    background-color: #e55a00;
+}
+
+/* Social Column */
+.socialColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.socialTitle {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.3333;
+    letter-spacing: -0.25px;
+    color: #B0B0B0;
+    margin: 0 0 22px 0;
+    margin-top: -8px;
+}
+
+.socialIcons {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.socialIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    transition: opacity 0.2s ease;
+}
+
+.socialIcon:hover {
+    opacity: 0.7;
+}
+
+.socialIcon img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+/* Divider */
+.divider {
+    width: 1170px;
+    height: 1px;
+    background-color: #F7F8FA;
+    opacity: 0.2;
+    margin-bottom: 30px;
+}
+
+/* Copyright */
+.copyright {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.4286;
+    color: #B0B0B0;
+    width: 1170px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .content {
+        width: 100%;
+        max-width: 1170px;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 20px;
+        padding: 0 50px;
+    }
+
+    .divider {
+        width: 100%;
+        max-width: 1170px;
+    }
+
+    .copyright {
+        width: 100%;
+        max-width: 1170px;
+        padding: 0 50px;
+    }
+
+    .contactColumn,
+    .socialColumn {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer {
+        padding: 40px 0 30px;
+    }
+
+    .content {
+        width: 100%;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px 16px;
+        margin-bottom: 32px;
+        padding: 0 16px;
+        align-items: start;
+    }
+
+    /* Đặt thứ tự các cột theo ảnh mẫu */
+    .column:nth-child(1) {
+        order: 1;
+        /* TÌM HIỂU THÊM */
+    }
+
+    .column:nth-child(2) {
+        order: 2;
+        /* HỖ TRỢ */
+    }
+
+    .column:nth-child(3) {
+        order: 3;
+        /* GIỚI THIỆU */
+        margin-top: -130px;
+        /* Dịch lên gần TÌM HIỂU THÊM */
+    }
+
+    .column:nth-child(4) {
+        order: 5;
+        margin-top: -120px;
+        /* LIÊN HỆ - xuống dưới */
+    }
+
+    .contactColumn {
+        order: 4;
+        /* Contact column - cột phải */
+        grid-column: span 1;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .socialColumn {
+        order: 6;
+        /* THEO DÕI MI - cuối cùng */
+        grid-column: span 2;
+        align-items: flex-start;
+        text-align: left;
+        margin-top: 0px;
+    }
+
+    .divider {
+        width: 100%;
+        margin: 0 16px 20px;
+    }
+
+    .copyright {
+        width: 100%;
+        padding: 0 16px;
+    }
+
+    .column {
+        margin-bottom: 0;
+    }
+
+    .columnTitle {
+        font-size: 14px;
+        margin-bottom: 16px;
+    }
+
+    .link {
+        font-size: 13px;
+        line-height: 1.4;
+    }
+
+    .linkList {
+        gap: 12px;
+    }
+
+    .phoneNumber {
+        font-size: 20px;
+        margin-bottom: 8px;
+    }
+
+    .workingHours {
+        font-size: 13px;
+        margin-bottom: 16px;
+    }
+
+    .emailButton {
+        width: 140px;
+        height: 40px;
+        font-size: 14px;
+        padding: 10px 16px;
+    }
+
+    .socialTitle {
+        font-size: 20px;
+        margin-bottom: 16px;
+    }
+
+    .socialIcons {
+        gap: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .content {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px 12px;
+        padding: 0 12px;
+    }
+
+    .column {
+        align-items: flex-start;
+    }
+
+    .linkList {
+        align-items: flex-start;
+    }
+
+    .columnTitle {
+        font-size: 13px;
+    }
+
+    .link {
+        font-size: 12px;
+    }
+
+    .phoneNumber {
+        font-size: 18px;
+    }
+
+    .workingHours {
+        font-size: 12px;
+    }
+
+    .emailButton {
+        width: 120px;
+        height: 36px;
+        font-size: 13px;
+        padding: 8px 12px;
+    }
+
+    .socialTitle {
+        font-size: 18px;
+    }
+
+    .socialIcons {
+        gap: 10px;
+    }
+
+    .socialIcon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .socialIcon img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .divider {
+        margin: 0 12px 16px;
+    }
+
+    .copyright {
+        padding: 0 12px;
+        font-size: 12px;
+    }
+}

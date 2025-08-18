@@ -1,0 +1,231 @@
+.productFeatures {
+  position: relative;
+  width: 100%;
+  padding: 4rem 0;
+  background-color: #EBE6FA;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top right, #DEF0FA, #FFFFFF);
+  z-index: 0;
+}
+
+.row {
+  display: flex;
+  gap: 20px;
+  width: 1170px;
+  height: 442px;
+  margin: 0 auto 20px;
+  position: relative;
+  z-index: 1;
+  padding: 0;
+  box-sizing: border-box;
+  justify-content: space-between;
+}
+
+.card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.largeCard {
+  height: 413px;
+  flex: 0 0 calc(50% - 10px);
+  max-width: calc(50% - 10px);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.mediumCard {
+  height: 265px;
+  flex: 0 0 calc(33.333% - 14px);
+  max-width: calc(33.333% - 14px);
+  border-radius: 16px;
+  overflow: hidden;
+
+}
+
+.mediumCardTall {
+  width: 377px;
+  height: 442px;
+  flex: 0 0 377px;
+  max-width: 377px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.smallCardContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 377px;
+  height: 442px;
+  flex: 0 0 377px;
+  max-width: 377px;
+
+}
+
+.featureFourRow,
+.featureEightRow {
+  margin-bottom: 20px;
+}
+
+
+.smallCard {
+  width: 377px;
+  height: 211px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.cardImage {
+  object-fit: cover;
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+  position: relative !important;
+  padding: 0;
+  margin: 0;
+  border-radius: 16px;
+}
+
+.backgroundImage {
+  object-fit: cover;
+  z-index: 0;
+}
+
+
+
+.container {
+  width: 100%;
+  max-width: 1366px;
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.titleContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+  margin-top: 45px;
+}
+
+
+.titleImage {
+  max-width: 80%;
+  height: auto;
+  position: relative;
+}
+
+
+@media (max-width: 768px) {
+  .productFeatures {
+    padding: 2rem 0;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 375px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .row {
+    flex-direction: column;
+    gap: 12px;
+    width: 343px;
+    height: 895px;
+    margin-bottom: 24px;
+    align-items: center;
+    padding: 0;
+    box-sizing: border-box;
+    justify-content: flex-start;
+  }
+
+  .titleContainer {
+    margin-top: 32px;
+    margin-bottom: 32px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .titleImage1Mobile {
+    width: 284px !important;
+    height: 25px !important;
+    max-width: none !important;
+  }
+
+  .titleImage2Mobile {
+    width: 191px !important;
+    height: 25px !important;
+    max-width: none !important;
+  }
+
+  .mediumCardTall {
+    width: 343px !important;
+    height: 257px !important;
+    flex: none !important;
+    margin-bottom: 0;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .smallCardContainer {
+    width: 343px !important;
+    height: 356px !important;
+    flex: none !important;
+    gap: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .smallCard {
+    width: 343px !important;
+    height: 172px !important;
+    flex: none !important;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .cardImage {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    padding: 0;
+    margin: 0;
+    display: block;
+    max-width: 100% !important;
+    border-radius: 12px;
+  }
+}

@@ -1,0 +1,185 @@
+/* Container chính */
+.container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Background tràn toàn màn hình */
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* Banner container */
+.banner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 375px;
+    height: 620px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* .bannerImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+} */
+
+.border {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 1px solid none;
+    border-radius: 16px;
+    background-color: rgba(255, 255, 255, 0.8);
+
+}
+
+
+/* Container cho 2 buttons */
+.buttonsContainer {
+    position: absolute;
+    bottom: 10px;
+    /* Điều chỉnh vị trí theo banner */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 319px;
+    height: 104px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    /* Padding giữa 2 buttons */
+}
+
+/* Base button styles */
+.button {
+    width: 100%;
+    height: 48px;
+    border: none;
+    border-radius: 12px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* Button chơi game */
+.playButton {
+    background-color: #FF6700;
+    color: white;
+    box-shadow: 0 4px 12px rgba(255, 103, 0, 0.3);
+}
+
+.playButton:hover {
+    background-color: #e55a00;
+
+    box-shadow: 0 6px 16px rgba(255, 103, 0, 0.4);
+}
+
+.playButton:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(255, 103, 0, 0.3);
+}
+
+/* Button xem hướng dẫn */
+.guideButton {
+    background-color: transparent;
+    color: #212B36;
+    border: none;
+    backdrop-filter: none;
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: none;
+    padding: 12px 16px;
+    gap: 6px;
+}
+
+.guideButton:hover {
+    color: #FF6700;
+    transform: none;
+    box-shadow: none;
+}
+
+.guideButton:active {
+    background-color: rgba(33, 43, 54, 0.1);
+    transform: none;
+}
+
+.infoIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+}
+
+.infoIcon svg {
+    width: 16px;
+    height: 16px;
+    transition: all 0.3s ease;
+}
+
+.guideButton:hover .infoIcon svg path {
+    fill: #FF6700;
+}
+
+/* Desktop warning */
+.desktopWarning {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.warningContent h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.warningContent p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 500px;
+    opacity: 0.9;
+}
+
+/* Mobile responsive */
+@media (max-width: 375px) {
+    .buttonsContainer {
+        width: calc(100vw - 56px);
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 320px) {
+    .button {
+        font-size: 14px;
+    }
+
+    .buttonsContainer {
+        width: calc(100vw - 40px);
+    }
+}
