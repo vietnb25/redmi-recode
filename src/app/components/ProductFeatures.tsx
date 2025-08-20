@@ -29,7 +29,7 @@ export default function ProductFeatures() {
   return (
     <section className={styles.productFeatures} style={{
 
-      scrollMarginTop: '60px'
+      scrollMarginBottom: '-100px'
     }}>
       <div className={styles.background}>
         <Image

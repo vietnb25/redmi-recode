@@ -23,8 +23,8 @@ export default function Header() {
             priority
           />
         </Link>
-        
-        <button 
+
+        <button
           className={styles.toggleButton}
           onClick={toggleMenu}
           aria-controls="navbar-nav"

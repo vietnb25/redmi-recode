@@ -23,7 +23,7 @@ export default function ProductInfo() {
   }, []);
 
   return (
-    <section className={styles.section} id="product-info" style={{ scrollMarginTop: '100px' }}>
+    <section className={styles.section} id="product-info" style={{ scrollMarginTop: '64px' }}>
       <div className={styles.container}>
         <div className={styles.titleContainer}>
           <Image

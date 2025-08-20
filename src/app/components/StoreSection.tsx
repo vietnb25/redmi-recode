@@ -4,7 +4,7 @@ import styles from './StoreSection.module.css';
 
 const StoreSection = () => {
     return (
-        <div className={styles.container}>
+        <div className={styles.container} id="stores" style={{ scrollMarginTop: "64px" }}>
             {/* Hệ thống cửa hàng bán lẻ */}
             <div className={styles.retailSection}>
                 <h2 className={styles.title}>
