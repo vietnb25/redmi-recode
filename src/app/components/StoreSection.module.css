@@ -163,15 +163,15 @@
         border-radius: 12px;
         overflow: hidden;
         background: linear-gradient(135deg, rgba(251, 250, 255, 1) 0%, rgba(235, 230, 250, 0.2) 100%);
-        border: 1px solid #FFFFFF;
+        /* border: 1px solid #FFFFFF; */
         display: flex;
         align-items: center;
         justify-content: center;
     }
 
     .ecommerceImage {
-        max-width: 80%;
-        max-height: 80%;
+        width: 166px;
+        height: 120px;
         object-fit: contain;
         border-radius: 8px;
     }

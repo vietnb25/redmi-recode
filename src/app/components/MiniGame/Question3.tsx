@@ -104,7 +104,7 @@ const Question3: React.FC<Question3Props> = ({ onGameComplete, lastName, phone }
                 justifyContent: 'center',
                 marginTop: '20px',
                 marginBottom: '20px',
-                marginLeft: '40px',
+                marginLeft: '60px',
             }}>
                 <Image
                     src="/MiniGame/step3.png"

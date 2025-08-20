@@ -598,19 +598,6 @@ export default function GameSection() {
                       </div>
                     </div>
 
-                    {/* Địa chỉ */}
-                    <div className={styles.inputGroup}>
-                      <label className={styles.inputLabel}>Địa chỉ</label>
-                      <Input
-                        placeholder="Nhập địa chỉ"
-                        className={styles.customInput}
-                        value={userForm.address}
-                        onChange={(e) => setUserForm(prev => ({ ...prev, address: e.target.value }))}
-                        status={formErrors.address ? 'error' : ''}
-                      />
-                      {formErrors.address && <span style={{ color: '#ff4d4f', fontSize: '12px' }}>{formErrors.address}</span>}
-                    </div>
-
                     {/* Phường/Xã */}
                     <div className={styles.inputGroup}>
                       <label className={styles.inputLabel}>Phường/Xã</label>
@@ -633,6 +620,21 @@ export default function GameSection() {
                       />
                       {formErrors.ward && <span style={{ color: '#ff4d4f', fontSize: '12px' }}>{formErrors.ward}</span>}
                     </div>
+
+                    {/* Địa chỉ */}
+                    <div className={styles.inputGroup}>
+                      <label className={styles.inputLabel}>Địa chỉ</label>
+                      <Input
+                        placeholder="Nhập địa chỉ"
+                        className={styles.customInput}
+                        value={userForm.address}
+                        onChange={(e) => setUserForm(prev => ({ ...prev, address: e.target.value }))}
+                        status={formErrors.address ? 'error' : ''}
+                      />
+                      {formErrors.address && <span style={{ color: '#ff4d4f', fontSize: '12px' }}>{formErrors.address}</span>}
+                    </div>
+
+
                   </div>
                 </div>
               </div>

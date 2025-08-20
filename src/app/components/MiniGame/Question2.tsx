@@ -50,7 +50,7 @@ const Question2: React.FC<Question2Props> = ({ onCorrectAnswer }) => {
                 justifyContent: 'center',
                 marginTop: '20px',
                 marginBottom: '20px',
-                marginLeft: '40px',
+                marginLeft: '60px',
             }}>
                 <Image
                     src="/MiniGame/step2.png"
