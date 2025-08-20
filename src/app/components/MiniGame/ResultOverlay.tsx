@@ -53,7 +53,7 @@ const ResultOverlay: React.FC<ResultOverlayProps> = ({ isVisible, isCorrect, onC
             zIndex: 99999
         }}>
             <Image
-                src={isCorrect ? "/MiniGame/true.png" : "/MiniGame/false.png"}
+                src={isCorrect ? "/MiniGame/True.png" : "/MiniGame/false.png"}
                 alt={isCorrect ? "Correct" : "Incorrect"}
                 width={120}
                 height={192}
