@@ -263,17 +263,7 @@ const Question3: React.FC<Question3Props> = ({ onGameComplete, lastName, phone }
                     Xem hướng dẫn
                 </a>
 
-                {/* Chỉ hiển thị loading hoặc thông báo khi đã upload */}
-                {uploadedImage && (
-                    <div style={{
-                        color: '#FF6700',
-                        fontFamily: 'var(--font-roboto), Roboto, sans-serif',
-                        fontSize: '14px',
-                        fontWeight: 500
-                    }}>
-                        Đang xử lý...
-                    </div>
-                )}
+
             </div>
 
             {/* Result Drawer */}

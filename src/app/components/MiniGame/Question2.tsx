@@ -3,7 +3,8 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import GameLayout from './GameLayout';
-import ResultOverlay from './ResultOverlay';
+
+import ResultOverlay2 from './ResultOverlay2';
 
 interface Question2Props {
     onCorrectAnswer?: () => void;
@@ -354,7 +355,7 @@ const Question2: React.FC<Question2Props> = ({ onCorrectAnswer }) => {
             </div>
 
             {/* Result Overlay */}
-            <ResultOverlay
+            <ResultOverlay2
                 isVisible={showResult}
                 isCorrect={selectedAnswer === correctAnswer}
                 onClose={handleCloseOverlay}

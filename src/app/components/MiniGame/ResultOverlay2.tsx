@@ -10,7 +10,7 @@ interface ResultOverlayProps {
     onClose: () => void;
 }
 
-const ResultOverlay: React.FC<ResultOverlayProps> = ({ isVisible, isCorrect, onClose }) => {
+const ResultOverlay2: React.FC<ResultOverlayProps> = ({ isVisible, isCorrect, onClose }) => {
     const [mounted, setMounted] = useState(false);
     const [animate, setAnimate] = useState(false);
 
@@ -89,7 +89,7 @@ const ResultOverlay: React.FC<ResultOverlayProps> = ({ isVisible, isCorrect, onC
                         animation: animate ? (isCorrect ? 'correctPulse 2s infinite' : 'incorrectShake 0.5s ease-in-out') : 'none'
                     }}>
                         <Image
-                            src={isCorrect ? "/MiniGame/True.png" : "/MiniGame/false.png"}
+                            src={isCorrect ? "/MiniGame/true2.png" : "/MiniGame/false.png"}
                             alt={isCorrect ? "Correct" : "Incorrect"}
                             width={120}
                             height={192}
@@ -133,7 +133,7 @@ const ResultOverlay: React.FC<ResultOverlayProps> = ({ isVisible, isCorrect, onC
                     marginTop: '-30px'
                 }}>
                     {isCorrect
-                        ? <>Câu trả lời chính xác.<br />Tiếp tục nào!</>
+                        ? <>Lựa chọn hoàn hảo!<br />Bạn đang có sở thích cùng <br /><span style={{ color: "#FF6700", fontWeight: 700 }}>40%</span> người dùng khác đấy.</>
                         : <>Suýt đúng rồi.<br />Thử lại lần sau nhé!</>
                     }
                 </div>
@@ -207,4 +207,4 @@ const ResultOverlay: React.FC<ResultOverlayProps> = ({ isVisible, isCorrect, onC
     return createPortal(overlayContent, document.body);
 };
 
-export default ResultOverlay;
+export default ResultOverlay2;
