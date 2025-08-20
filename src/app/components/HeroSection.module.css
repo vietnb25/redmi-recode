@@ -220,7 +220,7 @@
 @media (max-width: 768px) {
   .heroSection {
     height: auto;
-    max-height: 95vh;
+    max-height: 105vh;
     background: linear-gradient(135deg, #DEF0FA 0%, #FFFFFF 100%);
     padding: 0;
     /* Remove padding to allow full width content */
