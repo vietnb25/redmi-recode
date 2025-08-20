@@ -33,7 +33,7 @@ export default function ProductFeatures() {
     }}>
       <div className={styles.background}>
         <Image
-          src="/ProductFeatures/background3.png"
+          src="/ProductFeatures/Background3.png"
           alt=""
           fill
           className={styles.backgroundImage}

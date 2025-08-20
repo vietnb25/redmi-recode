@@ -4,7 +4,7 @@
   /* Cố định height 550px cho desktop */
   overflow: hidden;
   position: relative;
-  background: url('/HeroSection/background.png');
+  background: url('/HeroSection/Background.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
