@@ -31,8 +31,7 @@ export default function ProductInfo() {
             alt="Redmi Note 13"
             width={isMobile ? 350 : 500}
             height={isMobile ? 15 : 100}
-            quality={100}
-            priority
+
             className={styles.titleImage}
           />
         </div>
@@ -47,16 +46,10 @@ export default function ProductInfo() {
                     alt="AMOLED Display"
                     width={isMobile ? 343 : 800}
                     height={isMobile ? 257 : 800}
-                    quality={100}
-                    priority
+
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className={styles.image}
-                    style={{
-                      imageRendering: 'crisp-edges',
-                      filter: 'contrast(1.1) saturate(1.1)',
-                      backfaceVisibility: 'hidden',
-                      transform: 'translateZ(0)'
-                    }}
+
                   />
                 </div>
               </div>
@@ -68,16 +61,10 @@ export default function ProductInfo() {
                     alt="200MP Camera"
                     width={isMobile ? 343 : 800}
                     height={isMobile ? 257 : 800}
-                    quality={100}
-                    priority
+
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className={styles.image}
-                    style={{
-                      imageRendering: 'crisp-edges',
-                      filter: 'contrast(1.1) saturate(1.1)',
-                      backfaceVisibility: 'hidden',
-                      transform: 'translateZ(0)'
-                    }}
+
                   />
                 </div>
               </div>
@@ -92,15 +79,10 @@ export default function ProductInfo() {
                     alt="Design Feature"
                     width={isMobile ? 343 : 600}
                     height={isMobile ? 172 : 600}
-                    quality={100}
+
                     sizes="(max-width: 768px) 100vw, 33vw"
                     className={styles.image}
-                    style={{
-                      imageRendering: 'crisp-edges',
-                      filter: 'contrast(1.1) saturate(1.1)',
-                      backfaceVisibility: 'hidden',
-                      transform: 'translateZ(0)'
-                    }}
+
                   />
                 </div>
               </div>
@@ -112,15 +94,10 @@ export default function ProductInfo() {
                     alt="Waterproof Feature"
                     width={isMobile ? 343 : 600}
                     height={isMobile ? 172 : 600}
-                    quality={100}
+
                     sizes="(max-width: 768px) 100vw, 33vw"
                     className={styles.image}
-                    style={{
-                      imageRendering: 'crisp-edges',
-                      filter: 'contrast(1.1) saturate(1.1)',
-                      backfaceVisibility: 'hidden',
-                      transform: 'translateZ(0)'
-                    }}
+
                   />
                 </div>
               </div>
@@ -132,15 +109,10 @@ export default function ProductInfo() {
                     alt="Fast Charging"
                     width={isMobile ? 343 : 600}
                     height={isMobile ? 172 : 600}
-                    quality={100}
+
                     sizes="(max-width: 768px) 100vw, 33vw"
                     className={styles.image}
-                    style={{
-                      imageRendering: 'crisp-edges',
-                      filter: 'contrast(1.1) saturate(1.1)',
-                      backfaceVisibility: 'hidden',
-                      transform: 'translateZ(0)'
-                    }}
+
                   />
                 </div>
               </div>
