@@ -11,7 +11,6 @@ export default function Herosection() {
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
 
-  // Check if mobile
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 768);
@@ -23,34 +22,34 @@ export default function Herosection() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Ensure both slides are synchronized at start
   useEffect(() => {
     setDisplayedSlide(currentSlide);
   }, []);
 
-  const leftImages = [
-    '/HeroSection/tap1left.png',
-    '/HeroSection/tap1left2.png',
-    '/HeroSection/tap1left3.png'
+  const banner = [
+    '/HeroSection/banner11.png',
+    '/HeroSection/banner222.png',
+    '/HeroSection/banner333.png'
   ];
 
-  const leftImagesMobile = [
+  const bannerMobile = [
     {
-      src: '/HeroSection/leftmb1.png',
+      src: '/HeroSection/banner1mobilet.png',
       width: 500,
       height: 700,
-      marginTop: -80,
+      marginTop: 100,
     },
     {
-      src: '/HeroSection/leftmb2.png',
-      width: 800,
-      height: 1000,
-      marginTop: -50,
+      src: '/HeroSection/banner2mobilet.png',
+      width: 1000,
+      height: 700,
+      marginTop: 50,
     },
     {
-      src: '/HeroSection/leftmb3.png',
+      src: '/HeroSection/banner3mobilet.png',
       width: 200,
-      height: 200
+      height: 200,
+      marginTop: 50,
     }
   ];
 
@@ -60,15 +59,20 @@ export default function Herosection() {
     setIsAnimating(true);
     setCurrentSlide(index);
 
-    // After the fade-out animation, update the displayed image and fade it in
     setTimeout(() => {
       setDisplayedSlide(index);
     }, 250);
 
-    // Reset the animation state after the complete transition
     setTimeout(() => {
       setIsAnimating(false);
     }, 500);
+  };
+
+  // khi click ảnh => chuyển sang ảnh tiếp theo
+  const handleImageClick = () => {
+    const maxSlides = isMobile ? bannerMobile.length : banner.length;
+    const nextSlide = (currentSlide + 1) % maxSlides;
+    handleDotClick(nextSlide);
   };
 
   // Swipe handlers for mobile
@@ -89,7 +93,7 @@ export default function Herosection() {
     const isLeftSwipe = distance > 50;
     const isRightSwipe = distance < -50;
 
-    const maxSlides = isMobile ? leftImagesMobile.length : leftImages.length;
+    const maxSlides = isMobile ? bannerMobile.length : banner.length;
 
     if (isLeftSwipe && currentSlide < maxSlides - 1) {
       handleDotClick(currentSlide + 1);
@@ -98,66 +102,53 @@ export default function Herosection() {
       handleDotClick(currentSlide - 1);
     }
   };
+  useEffect(() => {
+    const maxSlides = isMobile ? bannerMobile.length : banner.length;
+
+    const interval = setInterval(() => {
+      setIsAnimating(true); // bắt đầu fade out
+
+      setTimeout(() => {
+        setCurrentSlide((prev) => (prev + 1) % maxSlides);
+        setIsAnimating(false); // fade in lại
+      }, 500); // bằng thời gian transition
+    }, 10000);
+
+    return () => clearInterval(interval);
+  }, [isMobile, banner.length, bannerMobile.length]);
+
 
   return (
-    <section className={styles.heroSection}>
-      <div className={styles.container}>
-        {/* Left product image */}
-        <div
-          className={styles.leftImageContainer}
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
-        >
+    <div
+      className={styles.heroSection}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
+      <Image
+        src={isMobile ? bannerMobile[currentSlide].src : banner[currentSlide]}
+        alt={`Redmi Note 13 - Slide ${currentSlide + 1}`}
+        width={isMobile ? bannerMobile[currentSlide].width : 713}
+        height={isMobile ? bannerMobile[currentSlide].height : 100}
+        className={`${styles.infoImage} ${isAnimating ? styles.hidden : ''}`}
+        style={
+          isMobile
+            ? { marginTop: bannerMobile[currentSlide].marginTop }
+            : {}
+        }
+      />
 
-          <Image
-            src={isMobile ? leftImagesMobile[displayedSlide].src : leftImages[displayedSlide]}
-            alt={`Redmi Note 13 - Slide ${displayedSlide + 1}`}
-            width={isMobile ? leftImagesMobile[displayedSlide].width : 713}
-            height={isMobile ? leftImagesMobile[displayedSlide].height : 100}
-            className={`${styles.productImage} ${isAnimating ? styles.animating : ''}`}
-            style={isMobile ? { marginTop: leftImagesMobile[displayedSlide].marginTop } : {}}
-          />
+      {!isMobile && (
+        <div className={styles.pagination}>
+          {banner.map((_, index) => (
+            <div
+              key={index}
+              className={`${styles.dot} ${currentSlide === index ? styles.active : ''}`}
+              onClick={() => handleDotClick(index)}
+            />
+          ))}
         </div>
-
-        {/* Right content container chung cho ảnh và disclaimer */}
-        <div className={styles.rightContentContainer}>
-          <Image
-            src={isMobile ? "/HeroSection/tap1rightmobile.png" : "/HeroSection/tap1right.png"}
-            alt="Redmi Note 13 Info"
-            width={isMobile ? 375 : 456}
-            height={isMobile ? 300 : 161}
-            className={styles.infoImage}
-          />
-
-          {/* Disclaimer text - only show on desktop */}
-          {/* {!isMobile && (
-            <p className={styles.disclaimer}>
-              Hình ảnh chỉ mang tính chất minh họa.<br />
-              Vui lòng liên hệ nhân viên tư vấn khi mua hàng.<br />
-              Tính năng có thể khác nhau tùy theo mỗi dòng máy.
-            </p>
-          )} */}
-          <p className={styles.disclaimer}>
-            Hình ảnh chỉ mang tính chất minh họa.<br />
-            Vui lòng liên hệ nhân viên tư vấn khi mua hàng.<br />
-            Tính năng có thể khác nhau tùy theo mỗi dòng máy.
-          </p>
-        </div>
-
-        {/* Pagination dots - only show on desktop */}
-        {!isMobile && (
-          <div className={styles.pagination}>
-            {leftImages.map((_, index) => (
-              <div
-                key={index}
-                className={`${styles.dot} ${currentSlide === index ? styles.active : ''}`}
-                onClick={() => handleDotClick(index)}
-              />
-            ))}
-          </div>
-        )}
-      </div>
-    </section>
+      )}
+    </div>
   );
 }

@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import styles from './GameSection.module.css';
-import { Modal, Drawer, Select, Input } from 'antd';
+import { Modal, Drawer, Select, Input, Button } from 'antd';
 import WelcomeGame from './MiniGame/WelcomeGame';
 
 interface FormErrors {
@@ -28,7 +28,7 @@ export default function GameSection() {
     // Check if running on client-side
     if (typeof window !== 'undefined') {
       const handleResize = () => {
-        setIsMobile(window.innerWidth <= 430);
+        setIsMobile(window.innerWidth <= 1024);
       };
 
       // Set initial value
@@ -113,6 +113,7 @@ export default function GameSection() {
 
   const showDrawer = () => {
     setOpen(true);
+
   };
 
   const onClose = () => {
@@ -137,37 +138,88 @@ export default function GameSection() {
     }
   };
 
+  // const onInfoFormClose = () => {
+  //   if (validateUserForm()) {
+  //     setInfoFormOpen(false);
+  //     // Show WelcomeGame component
+  //     setShowWelcomeGame(true);
+  //   }
+  // };
   const onInfoFormClose = () => {
     if (validateUserForm()) {
       setInfoFormOpen(false);
-      // Show WelcomeGame component
-      setShowWelcomeGame(true);
+      // Chuyển hướng trong 1 tab
+      const params = new URLSearchParams({
+        lastName: userForm.lastName,
+        phone: userForm.phone
+      }).toString();
+      window.location.href = `/welcome-game?${params}`;
     }
   };
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft(prev => {
+        if (prev.seconds > 0) {
+          return { ...prev, seconds: prev.seconds - 1 };
+        } else if (prev.minutes > 0) {
+          return { ...prev, minutes: prev.minutes - 1, seconds: 59 };
+        } else if (prev.hours > 0) {
+          return { ...prev, hours: prev.hours - 1, minutes: 59, seconds: 59 };
+        } else if (prev.days > 0) {
+          return { ...prev, days: prev.days - 1, hours: 23, minutes: 59, seconds: 59 };
+        }
+        return prev;
+      });
+    }, 1000);
 
-  // useEffect(() => {
-  //   const timer = setInterval(() => {
-  //     setTimeLeft(prev => {
-  //       if (prev.seconds > 0) {
-  //         return { ...prev, seconds: prev.seconds - 1 };
-  //       } else if (prev.minutes > 0) {
-  //         return { ...prev, minutes: prev.minutes - 1, seconds: 59 };
-  //       } else if (prev.hours > 0) {
-  //         return { ...prev, hours: prev.hours - 1, minutes: 59, seconds: 59 };
-  //       } else if (prev.days > 0) {
-  //         return { ...prev, days: prev.days - 1, hours: 23, minutes: 59, seconds: 59 };
-  //       }
-  //       return prev;
-  //     });
-  //   }, 1000);
-
-  //   return () => clearInterval(timer);
-  // }, []);
+    return () => clearInterval(timer);
+  }, []);
 
   // If WelcomeGame should be shown, render it instead
   if (showWelcomeGame) {
     return <WelcomeGame lastName={userForm.lastName} phone={userForm.phone} />;
   }
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalHDOpen, setIsModalHDOpen] = useState(false);
+
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+
+  const showModalHD = () => {
+    if (isMobile) {
+      showDrawer();
+    } else {
+      setIsModalHDOpen(true);
+    }
+  };
+
+  const handleOkHD = () => {
+    setIsModalHDOpen(false);
+  };
+
+  const handleCancelHD = () => {
+    setIsModalHDOpen(false);
+  };
+
+  const handlePlayClick = () => {
+    if (isMobile) {
+      showDrawer();
+    } else {
+      showModal();
+    }
+  };
+
+  const [loading, setLoading] = useState(false);
 
   return (
     <section id='gaming' className={styles.gameSection} style={{ scrollMarginTop: '60px' }}>
@@ -203,23 +255,23 @@ export default function GameSection() {
           <p className={styles.countdownLabel}>Thời gian còn lại</p>
           <div className={styles.countdownTimer}>
             <div className={styles.timeBox}>
-              {/* <span className={styles.timeNumber}>{timeLeft.days}</span> */}
-              <span className={styles.timeNumber}>13</span>
+              <span className={styles.timeNumber}>{timeLeft.days}</span>
+              {/* <span className={styles.timeNumber}>13</span> */}
               <span className={styles.timeLabel}>Ngày</span>
             </div>
             <div className={styles.timeBox}>
-              {/* <span className={styles.timeNumber}>{timeLeft.hours}</span> */}
-              <span className={styles.timeNumber}>13</span>
+              <span className={styles.timeNumber}>{timeLeft.hours}</span>
+              {/* <span className={styles.timeNumber}>13</span> */}
               <span className={styles.timeLabel}>Giờ</span>
             </div>
             <div className={styles.timeBox}>
-              {/* <span className={styles.timeNumber}>{timeLeft.minutes}</span> */}
-              <span className={styles.timeNumber}>13</span>
+              <span className={styles.timeNumber}>{timeLeft.minutes}</span>
+              {/* <span className={styles.timeNumber}>13</span> */}
               <span className={styles.timeLabel}>Phút</span>
             </div>
             <div className={styles.timeBox}>
-              <span className={styles.timeNumber}>13</span>
-              {/* <span className={styles.timeNumber}>{timeLeft.seconds}</span> */}
+              {/* <span className={styles.timeNumber}>13</span> */}
+              <span className={styles.timeNumber}>{timeLeft.seconds}</span>
               <span className={styles.timeLabel}>Giây</span>
             </div>
           </div>
@@ -227,10 +279,127 @@ export default function GameSection() {
 
         {/* Action Buttons */}
         <div className={styles.buttonGroup}>
-          <button className={styles.primaryButton} onClick={showDrawer}>
+          <button className={styles.primaryButton} onClick={handlePlayClick}>
             Chơi Ngay
           </button>
+          <Modal
+            open={isModalOpen}
+            // title={1}
+            onOk={handleOk}
+            onCancel={handleCancel}
+            // height={200}
+            width={477}
+            styles={{
+              body: {
+                padding: 0,
+                display: 'flex',
+                flexDirection: 'column',
+                height: '100%'
+              },
+              content: {
+                padding: 0,   // bỏ padding tổng thể
+                borderRadius: 12 // tuỳ chỉnh bo góc
+              }
+            }}
 
+            footer={[
+
+            ]}
+          >
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              height: '100%'
+            }}>
+              {/* Scrollable Content */}
+              <div style={{
+                flex: 1,
+                overflowY: 'auto',
+
+              }}>
+                {/* Banner */}
+                <div className={styles.drawerBannerDesktop}>
+                  <Image
+                    src="/GameSection/bannergame.png"
+                    alt="Game Banner"
+                    fill
+
+                  />
+                </div>
+
+                {/* Content */}
+                <div style={{
+                  padding: '20px',
+                  textAlign: 'center'
+                }}>
+
+                  <Image
+                    src="/GameSection/error.png"
+                    alt="No Support Device"
+                    width={429}
+                    height={236}
+                  />
+                  {/* <h2 style={{
+                    fontSize: '18px',
+                    fontWeight: 'bold',
+                    marginBottom: '16px',
+                    color: '#333'
+                  }}>
+
+                    Rất tiếc chúng tôi không hỗ trợ thiết bị của bạn!
+                  </h2>
+
+                  <div style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '12px'
+                  }}>
+                    <p style={{
+                      fontSize: '16px',
+                      color: '#333',
+                      lineHeight: '2'
+
+                    }}>
+                      Bạn có thể trãi nghiệm sản phẩm Redmi Note 13 Series tại hệ thống của hàng báng lẻ của Xiaomi để tham gia Minigame này và nhận các phần quà khủng.
+                    </p>
+
+                  </div> */}
+                  <button
+                    style={{
+                      // justifyItems: 'center',
+                      marginTop: '50px',
+                      marginBottom: '10px',
+                      width: '177px',
+                      height: '48px',
+                      backgroundColor: '#fff',
+                      color: '#212B36',
+                      // border: 'none',
+                      borderRadius: '8px',
+                      fontSize: '16px',
+                      fontWeight: 'bold',
+                      cursor: 'pointer',
+                      transition: 'background-color 0.3s ease',
+                      border: "1px solid #CBD5E1"
+                    }}
+                    onMouseOver={(e) => {
+                      e.currentTarget.style.backgroundColor = '#F1F5F9';
+                      e.currentTarget.style.transform = 'scale(1.02)';
+                    }}
+                    onMouseOut={(e) => {
+                      e.currentTarget.style.backgroundColor = '#fff';
+                      e.currentTarget.style.transform = 'scale(1)';
+                    }}
+                    onClick={handleCancel}
+
+                  >
+                    Quay về trang chủ
+                  </button>
+                </div>
+              </div>
+
+
+            </div>
+          </Modal>
           {/* Drawer 1: Hướng dẫn */}
           <Drawer
             closable={{ 'aria-label': 'Close Button' }}
@@ -260,7 +429,7 @@ export default function GameSection() {
                 {/* Banner */}
                 <div className={styles.drawerBanner}>
                   <Image
-                    src="/GameSection/bggame.png"
+                    src="/GameSection/bannergame.png"
                     alt="Game Banner"
                     fill
                   />
@@ -303,8 +472,8 @@ export default function GameSection() {
                       lineHeight: '2'
 
                     }}>
-                      Lorem ipsum dolor sit amet consectetur. &nbsp;
-                      Lorem ipsum dolor sit amet consectetur. &nbsp;
+                      Lorem ipsum dolor sit amet consectetur. <br />
+                      Lorem ipsum dolor sit amet consectetur. <br />
                       Lorem ipsum dolor sit amet consectetur.
                     </p>
 
@@ -647,12 +816,110 @@ export default function GameSection() {
             </div>
           </Drawer>
 
-          <button className={styles.secondaryButton}>
+          <button className={styles.secondaryButton} onClick={showModalHD}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path d="M8.18 5L7.64 19L16.36 12L8.18 5Z" fill="#6F64A4" />
             </svg>
             Xem hướng dẫn
+
           </button>
+          {/* Modal xem hướng dẫn */}
+          <Modal
+            open={isModalHDOpen}
+            // title={1}
+            onOk={handleOkHD}
+            onCancel={handleCancelHD}
+            // height={200}
+            width={477}
+            styles={{
+              body: {
+                padding: 0,
+                display: 'flex',
+                flexDirection: 'column',
+                height: '100%'
+              },
+              content: {
+                padding: 0,   // bỏ padding tổng thể
+                borderRadius: 12 // tuỳ chỉnh bo góc
+              }
+            }}
+
+            footer={[
+
+            ]}
+          >
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              height: '100%'
+            }}>
+              {/* Scrollable Content */}
+              <div style={{
+                flex: 1,
+                overflowY: 'auto',
+
+              }}>
+                {/* Banner */}
+                <div className={styles.drawerBannerDesktop}>
+                  <Image
+                    src="/GameSection/bannergame.png"
+                    alt="Game Banner"
+                    fill
+
+                  />
+                </div>
+
+                {/* Content */}
+                <div style={{
+                  padding: '20px',
+                  textAlign: 'center',
+                  color: '#637381',
+                  fontWeight: '400'
+
+                }}>
+
+                  <p style={{ textAlign: 'left' }}>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis possimus debitis assumenda recusandae harum, pariatur temporibus minima praesentium deleniti nam perspiciatis molestiae iste veritatis dolores accusantium iusto doloribus qui odio!
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis possimus debitis assumenda recusandae harum, pariatur temporibus minima praesentium deleniti nam perspiciatis molestiae iste veritatis dolores accusantium iusto doloribus qui odio!
+                  </p>
+                  <br />
+                  <h3 style={{ textAlign: 'left', fontWeight: '600', color: '#212B36' }}>Hướng dẫn</h3>
+
+                  <p style={{ textAlign: 'left' }}>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. <br />
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. <br />
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  </p>
+
+
+
+                  <button
+                    style={{
+                      marginTop: '50px',
+                      // marginBottom: '10px',
+                      width: '100%',
+                      height: '48px',
+                      backgroundColor: '#FF6700',
+                      color: 'white',
+                      border: 'none',
+                      borderRadius: '8px',
+                      fontSize: '16px',
+                      fontWeight: 'bold',
+                      cursor: 'pointer',
+                      transition: 'background-color 0.3s ease'
+                    }}
+                    onClick={handlePlayClick}
+
+                  >
+                    Bắt đầu
+                  </button>
+                </div>
+
+              </div>
+
+
+            </div>
+          </Modal>
         </div>
       </div>
 

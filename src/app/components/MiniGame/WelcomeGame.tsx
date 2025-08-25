@@ -32,7 +32,7 @@ const WelcomeGame: React.FC<WelcomeGameProps> = ({ lastName, phone }) => {
     return (
         <GameLayout>
             <Image
-                src="/MiniGame/welcomebanner.png"
+                src="/MiniGame/welcomebannerr.png"
                 alt="Welcome Banner"
                 width={395}
                 height={555}

@@ -30,11 +30,9 @@ const Question2: React.FC<Question2Props> = ({ onCorrectAnswer }) => {
 
     const handleCloseOverlay = () => {
         setShowResult(false);
-        // Nếu đáp án đúng, chuyển sang Question3
-        if (selectedAnswer === correctAnswer && onCorrectAnswer) {
+        // Chuyển sang câu tiếp theo nếu cần
+        if (onCorrectAnswer) {
             onCorrectAnswer();
-        } else {
-            console.log('Wrong answer, try again');
         }
     };
 
@@ -357,7 +355,7 @@ const Question2: React.FC<Question2Props> = ({ onCorrectAnswer }) => {
             {/* Result Overlay */}
             <ResultOverlay2
                 isVisible={showResult}
-                isCorrect={selectedAnswer === correctAnswer}
+                isCorrect={true} // hoặc bỏ luôn prop này nếu không cần
                 onClose={handleCloseOverlay}
             />
         </GameLayout>

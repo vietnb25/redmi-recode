@@ -8,8 +8,8 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+  /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
 }
 
 .container {
@@ -76,8 +76,16 @@
   text-decoration: none;
 }
 
+
+
 /* Mobile responsive */
-@media (max-width: 992px) {
+@media (max-width: 768px) {
+  .navbar {
+
+    height: 58px;
+
+  }
+
   .toggleButton {
     display: flex;
     z-index: 1001;

@@ -17,8 +17,7 @@ const StoreSection = () => {
                         <Image
                             src="/StoreSection/thegioididong.png"
                             alt="Thế Giới Di Động"
-                            width={175}
-                            height={91}
+                            fill
                             className={styles.storeImage}
                         />
                     </div>
@@ -28,8 +27,7 @@ const StoreSection = () => {
                         <Image
                             src="/StoreSection/fpt.png"
                             alt="FPT Shop"
-                            width={175}
-                            height={91}
+                            fill
                             className={styles.storeImage}
                         />
                     </div>
@@ -39,8 +37,7 @@ const StoreSection = () => {
                         <Image
                             src="/StoreSection/xiaomi.png"
                             alt="Mi Store"
-                            width={175}
-                            height={91}
+                            fill
                             className={styles.storeImage}
                         />
                     </div>
@@ -50,8 +47,7 @@ const StoreSection = () => {
                         <Image
                             src="/StoreSection/viettel.png"
                             alt="Viettel Store"
-                            width={175}
-                            height={91}
+                            fill
                             className={styles.storeImage}
                         />
                     </div>
@@ -61,8 +57,7 @@ const StoreSection = () => {
                         <Image
                             src="/StoreSection/hoangha.png"
                             alt="Hoàng Hà Mobile"
-                            width={175}
-                            height={91}
+                            fill
                             className={styles.storeImage}
                         />
                     </div>
@@ -72,8 +67,7 @@ const StoreSection = () => {
                         <Image
                             src="/StoreSection/cellphones.png"
                             alt="CellphoneS"
-                            width={175}
-                            height={91}
+                            fill
                             className={styles.storeImage}
                         />
                     </div>
@@ -91,8 +85,8 @@ const StoreSection = () => {
                         <Image
                             src="/StoreSection/shopee.png"
                             alt="Shopee"
-                            width={176}
-                            height={86}
+                            width={500}
+                            height={500}
                             className={styles.ecommerceImage}
                         />
                     </div>
@@ -101,8 +95,8 @@ const StoreSection = () => {
                         <Image
                             src="/StoreSection/lazada.png"
                             alt="Lazada"
-                            width={178}
-                            height={86}
+                            width={500}
+                            height={500}
                             className={styles.ecommerceImage}
                         />
                     </div>

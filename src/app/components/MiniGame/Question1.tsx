@@ -55,7 +55,7 @@ const Question1: React.FC<Question1Props> = ({ onCorrectAnswer }) => {
                 <Image
                     src="/MiniGame/step1.png"
                     alt="Step 2"
-                    width={240}
+                    width={245}
                     height={51}
                 />
             </div>
@@ -157,7 +157,7 @@ const Question1: React.FC<Question1Props> = ({ onCorrectAnswer }) => {
                             border: selectedAnswer === 'B' ? '1.5px solid #53498D' : '1px solid transparent',
                             borderRadius: '8px',
                             cursor: 'pointer',
-                            backgroundColor: '#070708',
+                            backgroundColor: '#fff',
                             position: 'relative',
                             boxShadow: selectedAnswer === 'B' ? '0px 0px 5px 0px rgba(111, 100, 164, 0.6)' : 'none',
                             overflow: 'hidden'

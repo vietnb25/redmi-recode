@@ -10,7 +10,7 @@ export default function ProductInfo() {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const handleResize = () => {
-        setIsMobile(window.innerWidth <= 768);
+        setIsMobile(window.innerWidth <= 1024);
       };
 
       handleResize();
@@ -42,7 +42,7 @@ export default function ProductInfo() {
               <div className={styles.col6}>
                 <div className={styles.featureCard}>
                   <Image
-                    src={isMobile ? "/ProductInfo/1mobile.png" : "/ProductInfo/1.png"}
+                    src={isMobile ? "/ProductInfo/1mobile.jpg" : "/ProductInfo/1.jpg"}
                     alt="AMOLED Display"
                     width={isMobile ? 343 : 800}
                     height={isMobile ? 257 : 800}
@@ -57,7 +57,7 @@ export default function ProductInfo() {
               <div className={styles.col6}>
                 <div className={styles.featureCard}>
                   <Image
-                    src={isMobile ? "/ProductInfo/2mobile.png" : "/ProductInfo/2.png"}
+                    src={isMobile ? "/ProductInfo/2mobile.jpg" : "/ProductInfo/2.jpg"}
                     alt="200MP Camera"
                     width={isMobile ? 343 : 800}
                     height={isMobile ? 257 : 800}
@@ -75,7 +75,7 @@ export default function ProductInfo() {
               <div className={styles.col4}>
                 <div className={styles.featureCard}>
                   <Image
-                    src={isMobile ? "/ProductInfo/3mobile.png" : "/ProductInfo/3.png"}
+                    src={isMobile ? "/ProductInfo/3mobile.jpg" : "/ProductInfo/3.jpg"}
                     alt="Design Feature"
                     width={isMobile ? 343 : 600}
                     height={isMobile ? 172 : 600}
@@ -90,7 +90,7 @@ export default function ProductInfo() {
               <div className={styles.col4}>
                 <div className={styles.featureCard}>
                   <Image
-                    src={isMobile ? "/ProductInfo/4mobile.png" : "/ProductInfo/4.png"}
+                    src={isMobile ? "/ProductInfo/4mobile.jpg" : "/ProductInfo/4.jpg"}
                     alt="Waterproof Feature"
                     width={isMobile ? 343 : 600}
                     height={isMobile ? 172 : 600}
@@ -105,7 +105,7 @@ export default function ProductInfo() {
               <div className={styles.col4}>
                 <div className={styles.featureCard}>
                   <Image
-                    src={isMobile ? "/ProductInfo/5mobile.png" : "/ProductInfo/5.png"}
+                    src={isMobile ? "/ProductInfo/5mobile.jpg" : "/ProductInfo/5.jpg"}
                     alt="Fast Charging"
                     width={isMobile ? 343 : 600}
                     height={isMobile ? 172 : 600}

@@ -16,7 +16,7 @@ export default function Header() {
       <div className={styles.container}>
         <Link href="/" className={styles.brand}>
           <Image
-            src="/logo.png"
+            src="/xiaomilogo.png"
             alt="Xiaomi Logo"
             width={40}
             height={40}

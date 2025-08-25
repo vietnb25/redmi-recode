@@ -63,7 +63,7 @@ export default function PromotionSection() {
                             <p className={styles.participationText}>
                                 Trong thời gian diễn ra chương trình, khi khách hàng đến trải nghiệm sản phẩm Redmi Note 13 Series tại hệ thống cửa hàng TGDĐ, khách hàng sẽ có cơ hội nhận được ngay <span style={{ color: "#3B3276", fontWeight: "600" }}>thẻ cào điện thoại 20k, 50k, 100k</span> <em style={{ color: "#3B3276", fontWeight: "600", }}>(gửi ngay vào tài khoản)</em>.
                                 <br /><br />
-                                Mọi thắc mắc vui lòng liên hệ <span className={styles.linkText}>https://www.facebook.com/XiaomiVietnam</span> hoặc <span className={styles.phoneText}>1800400410</span>
+                                Mọi thắc mắc vui lòng liên hệ <a className={styles.linkText} href="https://www.facebook.com/XiaomiVietnam">https://www.facebook.com/XiaomiVietnam</a> hoặc <span className={styles.phoneText}>1800400410</span>
                             </p>
                         </div>
                     </div>
