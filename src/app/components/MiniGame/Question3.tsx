@@ -99,15 +99,16 @@ const Question3: React.FC<Question3Props> = ({ onGameComplete, lastName, phone }
             <div style={{
                 display: 'flex',
                 justifyContent: 'center',
-                marginTop: '20px',
-                marginBottom: '20px',
-                marginLeft: '60px',
+                margin: '20px 40px 20px',
+                width: '100%'
             }}>
                 <Image
                     src="/MiniGame/step3.png"
-                    alt="Step 3"
-                    width={230}
-                    height={51}
+                    alt="Step 1"
+                    width={0}
+                    height={0}
+                    sizes="100vw"
+                    style={{ width: '270px', height: 'auto' }}
                 />
             </div>
 
@@ -455,7 +456,7 @@ const Question3: React.FC<Question3Props> = ({ onGameComplete, lastName, phone }
                             {/* Banner */}
                             <div className={styles.drawerBanner}>
                                 <Image
-                                    src="/GameSection/bggame.png"
+                                    src="/GameSection/bannergame.png"
                                     alt="Game Banner"
                                     fill
                                 />

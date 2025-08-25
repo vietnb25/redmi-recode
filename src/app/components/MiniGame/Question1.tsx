@@ -48,17 +48,19 @@ const Question1: React.FC<Question1Props> = ({ onCorrectAnswer }) => {
             <div style={{
                 display: 'flex',
                 justifyContent: 'center',
-                marginTop: '20px',
-                marginBottom: '20px',
-                marginLeft: '50px',
+                margin: '20px 30px 20px',
+                width: '100%'
             }}>
                 <Image
                     src="/MiniGame/step1.png"
-                    alt="Step 2"
-                    width={245}
-                    height={51}
+                    alt="Step 1"
+                    width={0}
+                    height={0}
+                    sizes="100vw"
+                    style={{ width: '300px', height: 'auto' }}
                 />
             </div>
+
 
             {/* Challenge Title */}
 
