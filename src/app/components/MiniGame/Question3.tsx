@@ -251,7 +251,13 @@ const Question3: React.FC<Question3Props> = ({ onGameComplete, lastName, phone }
                         lineHeight: '1.43em'
                     }}
                 >
-                    <span>
+                    <span style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        width: '20px',
+                        height: '20px'
+                    }}>
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M10.0003 18.9583C5.05866 18.9583 1.04199 14.9416 1.04199 9.99996C1.04199 5.05829 5.05866 1.04163 10.0003 1.04163C14.942 1.04163 18.9587 5.05829 18.9587 9.99996C18.9587 14.9416 14.942 18.9583 10.0003 18.9583ZM10.0003 2.29163C5.75033 2.29163 2.29199 5.74996 2.29199 9.99996C2.29199 14.25 5.75033 17.7083 10.0003 17.7083C14.2503 17.7083 17.7087 14.25 17.7087 9.99996C17.7087 5.74996 14.2503 2.29163 10.0003 2.29163Z" fill="#292D32" />
                             <path d="M10 11.4584C9.65833 11.4584 9.375 11.175 9.375 10.8334V6.66669C9.375 6.32502 9.65833 6.04169 10 6.04169C10.3417 6.04169 10.625 6.32502 10.625 6.66669V10.8334C10.625 11.175 10.3417 11.4584 10 11.4584Z" fill="#292D32" />
@@ -439,12 +445,13 @@ const Question3: React.FC<Question3Props> = ({ onGameComplete, lastName, phone }
                         open={open}
                         width={isMobile ? '100%' : "375px"}
                         styles={{
+
                             body: {
                                 padding: 0,
                                 display: 'flex',
                                 flexDirection: 'column',
-                                height: '100vh',
-                                maxHeight: '100vh',
+                                // height: '100vh',
+                                // maxHeight: '100vh',
 
                             },
                             wrapper: {
@@ -490,16 +497,16 @@ const Question3: React.FC<Question3Props> = ({ onGameComplete, lastName, phone }
 
                                 {/* Prize Amount */}
                                 <div style={{
-                                    backgroundColor: '#F8F9FA',
+                                    backgroundColor: '#E6E8EC',
                                     borderRadius: '12px',
-                                    padding: '16px 24px',
+                                    padding: '10px 16px',
                                     marginBottom: '20px',
                                     border: '1px solid #E9ECEF'
                                 }}>
                                     <span style={{
                                         fontFamily: 'var(--font-roboto), Roboto, sans-serif',
                                         fontSize: '24px',
-                                        fontWeight: 700,
+                                        fontWeight: 'semi-bold',
                                         color: '#6F64A4'
                                     }}>
                                         20.000 VND
@@ -515,7 +522,8 @@ const Question3: React.FC<Question3Props> = ({ onGameComplete, lastName, phone }
                                     lineHeight: '1.5',
                                     marginBottom: '20px'
                                 }}>
-                                    Bạn sẽ nhận được tiền nạp vào số điện thoại {phone || '0234672343'} trong vòng 24 giờ làm việc
+                                    Bạn sẽ nhận được tiền nạp vào số điện thoại {phone || '0234672343'}
+                                    <br />trong vòng 24 giờ làm việc
                                 </p>
 
                                 <button
@@ -539,7 +547,7 @@ const Question3: React.FC<Question3Props> = ({ onGameComplete, lastName, phone }
                                         fontSize: '16px',
                                         fontWeight: 500,
                                         cursor: 'pointer',
-                                        marginTop: '180px',
+                                        marginTop: '120px',
                                         marginBottom: '20px',
                                     }}
                                 >
