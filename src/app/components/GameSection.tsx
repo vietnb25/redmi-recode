@@ -175,10 +175,7 @@ export default function GameSection() {
     return () => clearInterval(timer);
   }, []);
 
-  // If WelcomeGame should be shown, render it instead
-  if (showWelcomeGame) {
-    return <WelcomeGame lastName={userForm.lastName} phone={userForm.phone} />;
-  }
+
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isModalHDOpen, setIsModalHDOpen] = useState(false);
@@ -219,7 +216,6 @@ export default function GameSection() {
     }
   };
 
-  const [loading, setLoading] = useState(false);
 
   return (
     <section id='gaming' className={styles.gameSection} style={{ scrollMarginTop: '60px' }}>
