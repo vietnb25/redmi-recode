@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import styles from './GameSection.module.css';
-import { Modal, Drawer, Select, Input, Button } from 'antd';
+import { Modal, Drawer, Select, Input } from 'antd';
 import WelcomeGame from './MiniGame/WelcomeGame';
 
 interface FormErrors {

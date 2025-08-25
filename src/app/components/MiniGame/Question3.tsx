@@ -87,10 +87,7 @@ const Question3: React.FC<Question3Props> = ({ onGameComplete, lastName, phone }
     };
 
     const [open, setOpen] = useState(false);
-    const [formOpen, setFormOpen] = useState(false);
-    const showDrawer = () => {
-        setOpen(true);
-    };
+
 
     const onClose = () => {
         setOpen(false);
