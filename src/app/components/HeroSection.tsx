@@ -27,9 +27,9 @@ export default function Herosection() {
   }, []);
 
   const banner = [
-    '/HeroSection/banner11.png',
-    '/HeroSection/banner222.png',
-    '/HeroSection/banner333.png'
+    '/HeroSection/banner11111.png',
+    '/HeroSection/banner22222.png',
+    '/HeroSection/banner33333.png'
   ];
 
   const bannerMobile = [

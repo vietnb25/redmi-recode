@@ -43,20 +43,7 @@ const GameLayout = ({ children, backgroundImage = "/MiniGame/bg.png" }: GameLayo
                     <h2>📱 Vui lòng sử dụng điện thoại</h2>
                     <p>Game này được thiết kế dành riêng cho thiết bị di động. Hãy truy cập bằng điện thoại để có trải nghiệm tốt nhất!</p>
                 </div>
-                <Button type="primary" onClick={showModal}>
-                    Open Modal
-                </Button>
-                <Modal
-                    title="Basic Modal"
-                    closable={{ 'aria-label': 'Custom Close Button' }}
-                    open={isModalOpen}
-                    onOk={handleOk}
-                    onCancel={handleCancel}
-                >
-                    <p>Some contents...</p>
-                    <p>Some contents...</p>
-                    <p>Some contents...</p>
-                </Modal>
+
             </div>
 
         );

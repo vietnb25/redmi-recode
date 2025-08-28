@@ -90,6 +90,7 @@ const Question1: React.FC<Question1Props> = ({ onCorrectAnswer }) => {
                             border: selectedAnswer === 'A' ? '1.5px solid #53498D' : '1px solid transparent',
                             borderRadius: '8px',
                             marginBottom: '12px',
+
                             cursor: 'pointer',
                             backgroundColor: '#fff',
                             position: 'relative',
@@ -102,13 +103,28 @@ const Question1: React.FC<Question1Props> = ({ onCorrectAnswer }) => {
                             width: '319px',
                             height: '103px',
                             backgroundColor: '#D9D9D9',
-                            position: 'relative'
+                            position: 'relative',
+                            // marginLeft: '12px'
                         }}>
-                            <Image
+                            {/* <Image
                                 src="/MiniGame/question1.png"
                                 alt="Phone Question 1"
                                 fill
                                 style={{ objectFit: 'contain' }}
+                            /> */} <video
+                                src="/MiniGame/videoquestion1.mp4"
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                                style={{
+                                    width: '323px',
+                                    // height: '100%',
+                                    objectFit: 'contain',
+                                    borderRadius: '8px',
+                                    display: 'block',
+                                    marginLeft: '-2px'
+                                }}
                             />
 
                             {/* Checkmark */}
@@ -172,12 +188,22 @@ const Question1: React.FC<Question1Props> = ({ onCorrectAnswer }) => {
                             backgroundColor: '#D9D9D9',
                             position: 'relative'
                         }}>
-                            <Image
-                                src="/MiniGame/question1.png"
-                                alt="Phone Question 1"
-                                fill
-                                style={{ objectFit: 'contain' }}
+                            <video
+                                src="/MiniGame/videoquestion1.mp4"
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                                style={{
+                                    width: '323px',
+                                    // height: '100%',
+                                    objectFit: 'contain',
+                                    borderRadius: '8px',
+                                    display: 'block',
+                                    marginLeft: '-2px'
+                                }}
                             />
+
 
                             {/* Checkmark */}
                             {selectedAnswer === 'B' && (
