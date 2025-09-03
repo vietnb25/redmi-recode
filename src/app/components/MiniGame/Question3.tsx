@@ -517,7 +517,7 @@ const Question3: React.FC<Question3Props> = ({ onGameComplete, lastName, phone }
                                         <span style={{
                                             fontFamily: 'var(--font-roboto), Roboto, sans-serif',
                                             fontSize: '24px',
-                                            fontWeight: 'semi-bold',
+                                            fontWeight: 600,
                                             color: '#6F64A4'
                                         }}>
                                             20.000 VND
