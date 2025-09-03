@@ -290,7 +290,7 @@ const Question3: React.FC<Question3Props> = ({ onGameComplete, lastName, phone }
                         backgroundRepeat: 'no-repeat'
                     },
                     wrapper: {
-                        height: '100vh'
+                        // height: '100vh'
                     }
                 }}
             >
