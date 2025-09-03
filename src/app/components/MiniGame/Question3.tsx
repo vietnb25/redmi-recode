@@ -445,23 +445,25 @@ const Question3: React.FC<Question3Props> = ({ onGameComplete, lastName, phone }
                         open={open}
                         width={isMobile ? '100%' : "375px"}
                         styles={{
-
                             body: {
                                 padding: 0,
                                 display: 'flex',
                                 flexDirection: 'column',
-                                // height: '100vh',
-                                // maxHeight: '100vh',
-
+                                height: '100%',
+                                maxHeight: '100vh',
+                                overflow: 'hidden'
+                            },
+                            content: {
+                                overflow: 'hidden'
                             },
                             wrapper: {
-                                height: '100vh'
+                                // height: '100vh'
                             }
                         }}
                     >
-                        <div className={styles.drawerWrapper}>
+                        <div className={styles.drawerWrapper} style={{ overflow: 'hidden', height: '100%', display: 'flex', flexDirection: 'column' }}>
                             {/* Banner */}
-                            <div className={styles.drawerBanner}>
+                            <div className={styles.drawerBanner} style={{ flexShrink: 0 }}>
                                 <Image
                                     src="/GameSection/bannergame.png"
                                     alt="Game Banner"
@@ -476,104 +478,120 @@ const Question3: React.FC<Question3Props> = ({ onGameComplete, lastName, phone }
                                 display: 'flex',
                                 flexDirection: 'column',
                                 alignItems: 'center',
-                                textAlign: 'center'
+                                textAlign: 'center',
+                                overflow: 'hidden'
                             }}>
-                                {/* Congratulations Icon */}
-                                <div style={{ marginBottom: '20px', fontSize: '28px' }}>
-                                    🎉🎉
-                                </div>
-
-                                {/* Title */}
-                                <h2 style={{
-                                    fontFamily: 'var(--font-roboto), Roboto, sans-serif',
-                                    fontSize: '18px',
-                                    fontWeight: 600,
-                                    color: '#212B36',
-                                    marginBottom: '16px',
-                                    lineHeight: '1.33'
-                                }}>
-                                    Chúc mừng bạn đã hoàn thành tất cả các thử thách của chúng tôi. Bạn sẽ nhận được phần thưởng trị giá:
-                                </h2>
-
-                                {/* Prize Amount */}
+                                {/* Upper Content Section */}
                                 <div style={{
-                                    backgroundColor: '#E6E8EC',
-                                    borderRadius: '12px',
-                                    padding: '10px 16px',
-                                    marginBottom: '20px',
-                                    border: '1px solid #E9ECEF'
-                                }}>
-                                    <span style={{
-                                        fontFamily: 'var(--font-roboto), Roboto, sans-serif',
-                                        fontSize: '24px',
-                                        fontWeight: 'semi-bold',
-                                        color: '#6F64A4'
-                                    }}>
-                                        20.000 VND
-                                    </span>
-                                </div>
-
-                                {/* Instructions */}
-                                <p style={{
-                                    fontFamily: 'var(--font-roboto), Roboto, sans-serif',
-                                    fontSize: '14px',
-                                    fontWeight: 400,
-                                    color: '#64748B',
-                                    lineHeight: '1.5',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    alignItems: 'center',
+                                    width: '100%',
                                     marginBottom: '20px'
                                 }}>
-                                    Bạn sẽ nhận được tiền nạp vào số điện thoại {phone || '0234672343'}
-                                    <br />trong vòng 24 giờ làm việc
-                                </p>
+                                    {/* Congratulations Icon */}
+                                    <div style={{ marginBottom: '20px', fontSize: '28px' }}>
+                                        🎉🎉
+                                    </div>
 
-                                <button
-                                    onClick={() => {
-                                        setOpen(false);
-                                        // Reset game hoặc redirect về home
-                                        if (onGameComplete) {
-                                            onGameComplete();
-                                        }
-                                        // Refresh lại trang
-                                        window.location.reload();
-                                    }}
-                                    style={{
-                                        width: '100%',
-                                        backgroundColor: '#FFff',
-                                        color: '#212B36',
-                                        border: '1px solid #CBD5E1',
-                                        borderRadius: '12px',
-                                        padding: '14px 24px',
+                                    {/* Title */}
+                                    <h2 style={{
                                         fontFamily: 'var(--font-roboto), Roboto, sans-serif',
-                                        fontSize: '16px',
-                                        fontWeight: 500,
-                                        cursor: 'pointer',
-                                        marginTop: '120px',
-                                        marginBottom: '20px',
-                                    }}
-                                >
-                                    Trở về trang home
-                                </button>
+                                        fontSize: '18px',
+                                        fontWeight: 600,
+                                        color: '#212B36',
+                                        marginBottom: '16px',
+                                        lineHeight: '1.33'
+                                    }}>
+                                        Chúc mừng bạn đã hoàn thành tất cả các thử thách của chúng tôi. Bạn sẽ nhận được phần thưởng trị giá:
+                                    </h2>
 
-                                {/* Contact Info */}
-                                <p style={{
-                                    fontFamily: 'var(--font-roboto), Roboto, sans-serif',
-                                    fontSize: '12px',
-                                    fontWeight: 400,
-                                    color: '#94A3B8',
-                                    lineHeight: '1.4',
+                                    {/* Prize Amount */}
+                                    <div style={{
+                                        backgroundColor: '#E6E8EC',
+                                        borderRadius: '12px',
+                                        padding: '10px 16px',
+                                        marginBottom: '20px',
+                                        border: '1px solid #E9ECEF'
+                                    }}>
+                                        <span style={{
+                                            fontFamily: 'var(--font-roboto), Roboto, sans-serif',
+                                            fontSize: '24px',
+                                            fontWeight: 'semi-bold',
+                                            color: '#6F64A4'
+                                        }}>
+                                            20.000 VND
+                                        </span>
+                                    </div>
+
+                                    {/* Instructions */}
+                                    <p style={{
+                                        fontFamily: 'var(--font-roboto), Roboto, sans-serif',
+                                        fontSize: '14px',
+                                        fontWeight: 400,
+                                        color: '#64748B',
+                                        lineHeight: '1.5'
+                                    }}>
+                                        Bạn sẽ nhận được tiền nạp vào số điện thoại {phone || '0234672343'}
+                                        <br />trong vòng 24 giờ làm việc
+                                    </p>
+                                </div>
+
+                                {/* Bottom Section with Button and Contact Info */}
+                                <div style={{
+                                    width: '100%',
+                                    display: 'flex',
+                                    flexDirection: 'column',
                                     marginTop: 'auto'
                                 }}>
-                                    Mọi thắc mắc vui lòng liên hệ{' '}
-                                    <a
-                                        href="https://www.facebook.com/XiaomiVietnam"
-                                        style={{ color: '#3B82F6', textDecoration: 'none' }}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
+                                    <button
+                                        onClick={() => {
+                                            setOpen(false);
+                                            // Reset game hoặc redirect về home
+                                            if (onGameComplete) {
+                                                onGameComplete();
+                                            }
+                                            // Refresh lại trang
+                                            window.location.reload();
+                                        }}
+                                        style={{
+                                            width: '100%',
+                                            backgroundColor: '#FFff',
+                                            color: '#212B36',
+                                            border: '1px solid #CBD5E1',
+                                            borderRadius: '12px',
+                                            padding: '14px 24px',
+                                            fontFamily: 'var(--font-roboto), Roboto, sans-serif',
+                                            fontSize: '16px',
+                                            fontWeight: 500,
+                                            cursor: 'pointer',
+                                            marginBottom: '12px',
+                                        }}
                                     >
-                                        https://www.facebook.com/XiaomiVietnam
-                                    </a>
-                                    {' '}hoặc 19000118.
-                                </p>
+                                        Trở về trang home
+                                    </button>
+
+                                    {/* Contact Info */}
+                                    <p style={{
+                                        fontFamily: 'var(--font-roboto), Roboto, sans-serif',
+                                        fontSize: '12px',
+                                        fontWeight: 400,
+                                        color: '#94A3B8',
+                                        lineHeight: '1.4',
+                                        // marginBottom: '10px'
+                                    }}>
+                                        Mọi thắc mắc vui lòng liên hệ{' '}
+                                        <a
+                                            href="https://www.facebook.com/XiaomiVietnam"
+                                            style={{ color: '#3B82F6', textDecoration: 'none' }}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            https://www.facebook.com/XiaomiVietnam
+                                        </a>
+                                        {' '}hoặc 19000118.
+                                    </p>
+                                </div>
                             </div>
 
 
